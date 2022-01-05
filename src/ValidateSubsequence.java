@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Algo2 {
+public class ValidateSubsequence {
 
     public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
-        // Write your code here.
+        // time O(n), space O(1)
         int seqCount = 0;
         for (int i: array) {
             if(seqCount < sequence.size() && i == sequence.get(seqCount)){
                 seqCount++;
+            }else if(seqCount == sequence.size()){ //further optimization
+                break;
             }
         }
-        if(seqCount == sequence.size())
-            return true;
-        return false;
+        return seqCount == sequence.size();
     }
 
     public static void main(String[] args) {
